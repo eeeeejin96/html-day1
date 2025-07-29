@@ -6,12 +6,12 @@
     margin-bottom: 20px;
 }
 .green {
-    border: #27ae60;
+    border-color: #27ae60;
     /* display: none; /* 공간도 사라지면서 밑에 있는 박스가 위로 오게된다. */
     /* visibility: hidden; /* 공간은 그대로 있으면서 빈공간이 된다 */
 }
 .blue {
-    border: #3498db;
+    border-color: #3498db;
 }
 
 /* 두번째 챌린지 */
