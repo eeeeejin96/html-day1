@@ -1,0 +1,110 @@
+/* POSITION */
+/* .locate {
+    position: static; /*웹사이트의 기본 속성값 , top right bottom left 등 위치 속성은 무시됨 - 태드 순서대로 요소들이 위치함
+    position: relative; /*내가 있는 위치 기준에서 움직임(다른요소들은 그대로있음) - 요소들끼리 겹칠수있음
+    position: absolute; /*나의 부모 영역 절대값 기준에서 움직임(해당 요소 영역 상관없이 다른 요소들이 배치됨) - 요소들끼리 겹칠수있음
+    position: fixed; /* absolute 와 비슷하지만 스크롤로 내려도 그 위치에 고정, 무조건 브라우저 창 기준임 
+    position: sticky; /* relative 와 비슷하지만 스크롤로 내려도 그 위치에 고정, 무조건 브라우저 창 기준임 
+    left: 30px;
+    top: 30px;
+}
+*/
+
+/* FLEXBOX */
+/*
+1. display: flex는 모든 요소를 가로로 둔다 
+2. display: flex는 부모한테 적용을 하고 자손을 건트롤 한다.
+3. justify-content :가로로 요소들을 움직인다 (flex-start, center, flex-end, space-between, space-around 등의 값이 있음)
+4. align-items: 세로로 요소들을 움직인다  
+5. flex-direction:column 가로로 정렬된 요소를 세로로 바꾸고 justify-content는 세로로 align-items는 가로방향으로 바뀐다 
+*/
+/* 문제1 */
+.question1 {
+    display: flex;
+    justify-content: space-between;
+}
+.box {
+    width: 200px;
+    height: 200px;
+    background-color: black;
+    color: white;
+}
+.sub-box {
+    display: flex;
+}
+.right15 {
+    margin-right: 15px;
+}
+
+/* 문제2 */
+.question2 {
+    display: flex;
+    /* justify-content: space-between; */
+    flex-direction: column;
+}
+/* .top200 {
+    position: relative;
+    top: 200px;
+}
+.top400 {
+    position: relative;
+    top: 400px;
+} */
+.align-center {
+    align-self: center;
+}
+.align-end {
+    align-self: flex-end;
+}
+
+/* 문제3 */
+.question3 {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+}
+.big-box{
+    width: 400px;
+    height: 400px;
+    background-color: grey;
+    color: white;
+    position: relative; /*relative를 부모에 주게되면 자식은 부모상자 를 기준으로 absloute를 위치 시킨다*/
+}
+.position-center{
+    position: absolute;
+    top: 25%;
+    left: 25%;
+}
+
+/* 문제4 */
+.box-grey {
+    width: 200px;
+    height: 200px;
+    background-color: grey;
+    color: white;
+    position: relative;
+    top: -100px;
+    left: 100px;
+}
+
+/* 문제5 */
+.question5 {
+    display: flex;
+    justify-content: flex-end;
+}
+.parent_box {
+    width: 700px;
+    height: 300px;
+    background-color: grey;
+    color: white;
+    position: relative;
+}
+.child_box1{
+    position: absolute;
+    bottom: 0px;
+}
+.child_box2{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
