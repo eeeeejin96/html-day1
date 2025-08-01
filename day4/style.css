@@ -84,15 +84,15 @@ body {
     padding: 15px 30px;
     border-bottom: 1px solid #dadce0;
     font-size: 15px;
-    color: rgba(0,0,0,.54);
+    color: #1f1f1f;
 }
 .second-line {
     padding: 15px 15px;
     font-size: 15px;
-    color: rgba(0,0,0,.54);
+    color: #1f1f1f;
 }
 
-.second-ling-second {
+.second-line-second {
     float: right;
 }
 

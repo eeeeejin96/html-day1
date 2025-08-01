@@ -1,0 +1,118 @@
+body {
+    margin: 0px
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+.header {
+    height: 80px;
+    background-color: black;
+    display: flex;
+    justify-content: space-around;
+}
+.logo {
+    margin: 20px;
+}
+.logo_img {
+    width: 132px;
+}
+.main_menu {
+    display: flex;
+    justify-content: space-between;
+}
+.menu_item {
+    padding: 28px 17px;
+    font-weight: 700;
+    color: white;
+}
+
+.main {
+    height: 969px;
+    background-color: rgb(41, 65, 171);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.title {
+    font-size: 146px;
+    line-height: 166px;
+    color: #1ed760;
+    font-weight: 900;
+    position: relative;
+    left: 225px;
+    padding-bottom: 40px;
+}
+.title_first {
+    position: relative;
+    left: -2.5em;
+}
+.sub_title {
+    color: #1ed760;
+    font-size: 18px;
+    line-height: 24px;
+    padding-bottom: 40px;
+    text-align: center;
+}
+.button_area {
+    /* position: relative; */
+    border: 1px solid red;
+}
+.main_button {
+    padding: 14px 32px;
+    background-color: #1ed760;
+    border-radius: 500px;
+    font-size: 16px;
+    color: #2941ab;
+    font-weight: 700;
+    border: none;
+    /*position: absolute;
+    z-index: 1; /* 다른 요소보다 위에 표시 */
+}
+.main_button:hover {
+    padding: 16px 36px;
+    background-color: #33dc6e;
+    font-size: 18px;
+}
+
+.footer {
+    height: 530px;
+    background-color: black;
+    /* display: flex;
+    justify-content: center; */
+}
+/* .footer_container{
+    max-width: 1170px;
+    width: 100%;
+    padding-top: 80px;
+    padding-bottom: 50px;
+} */
+.footer_main{
+    display: flex;
+    justify-content: space-around;
+}
+.footer_menu{
+    display: flex;
+
+}
+.column {
+    display: flex;
+    flex-direction: column
+}
+.footer_menu_title {
+    color: grey;
+}
+.footer_first{
+    display: flex;
+    justify-content: flex-end;
+    color: grey;
+}
+.footer_final{
+    display: flex;
+    justify-content: space-around;
+    color: grey;
+}
+.copyright{
+    color: grey;
+}
