@@ -1,15 +1,20 @@
 body {
-    margin: 0px
+    margin: 0px;
+    font-family: Circular, spotify-circular, Helvetica, Arial, sans-serif;
+    color: white;
 }
 a {
     text-decoration: none;
     color: white;
 }
-.header {
-    height: 80px;
+a:hover {
+    color: #1ed760;;
+}
+nav {
     background-color: black;
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 .logo {
     margin: 20px;
@@ -27,19 +32,22 @@ a {
     color: white;
 }
 
-.main {
+main {
+    background-image: url(https://www-growth.scdn.co/static/home/bursts.svg);
     height: 969px;
     background-color: rgb(41, 65, 171);
+    background-size: 175%;
+    background-position: 46% 4%; /* x좌표 y좌표 */
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
+
 .title {
     font-size: 146px;
     line-height: 166px;
     color: #1ed760;
-    font-weight: 900;
+    font-weight: 900;     
     position: relative;
     left: 225px;
     padding-bottom: 40px;
@@ -51,13 +59,12 @@ a {
 .sub_title {
     color: #1ed760;
     font-size: 18px;
-    line-height: 24px;
     padding-bottom: 40px;
     text-align: center;
 }
 .button_area {
     /* position: relative; */
-    border: 1px solid red;
+    text-align: center;
 }
 .main_button {
     padding: 14px 32px;
@@ -67,52 +74,88 @@ a {
     color: #2941ab;
     font-weight: 700;
     border: none;
-    /*position: absolute;
-    z-index: 1; /* 다른 요소보다 위에 표시 */
 }
 .main_button:hover {
-    padding: 16px 36px;
-    background-color: #33dc6e;
-    font-size: 18px;
+    transform: scale(1.1); /* 커지게 하는 효과 */
 }
 
-.footer {
+footer {
     height: 530px;
     background-color: black;
+    display: flex;
+    justify-content: center;
     /* display: flex;
     justify-content: center; */
 }
-/* .footer_container{
+.footer_container{
     max-width: 1170px;
     width: 100%;
     padding-top: 80px;
     padding-bottom: 50px;
-} */
+    position: relative;
+}
+.link_item {
+    color: #919496;
+    margin-right: 24px;
+}
 .footer_main{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
+    height: 346px;
 }
 .footer_menu{
+    width: 60%;
     display: flex;
-
+    justify-content: space-between;
 }
 .column {
     display: flex;
-    flex-direction: column
+    flex-direction: column;
+    padding: 0 15px;
 }
 .footer_menu_title {
-    color: grey;
+    color: #919496;
+    font-weight: 900;
+    margin: 20px 0px;
+}
+.footer_menu_item{
+    padding-bottom: 15px;
+    padding-top: 3px;
+    font-size: 16px;
+}
+.footer_sns{
+    width: 40%;
+    display: flex;
+    justify-content: flex-end;
+}
+.icon_box{
+    width: 54px;
+    height: 54px;
+    background-color: #222322;
+    border-radius: 50%;
+    margin-right: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.icon{
+    font-size: 24px;
+}
+.icon:hover{
+    color: #2de26d;
 }
 .footer_first{
     display: flex;
     justify-content: flex-end;
-    color: grey;
+    color: #919496;
+    font-size: 12px;
 }
 .footer_final{
     display: flex;
-    justify-content: space-around;
-    color: grey;
+    justify-content: space-between;
+    color: #919496;
+    margin-top: 12px;
 }
 .copyright{
-    color: grey;
+    color: #919496;
 }

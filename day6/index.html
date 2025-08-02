@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Spotify</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome -->
 </head>
 <body>
-    <div class="header">
+    <nav class="header">
         <div class="logo">
             <!-- Spotify -->
-            <img src="https://import.cdn.thinkific.com/523761/courses/1473531/logo-210901-223656.png" class="logo_img"/>
+            <img src="../assets/logo-210901-223656.png" class="logo_img"/>
         </div>
         <div class="main_menu">
             <a href="#" class="menu_item">Premium</a>
@@ -20,33 +21,35 @@
             <a href="#" class="menu_item">Sign up</a>
             <a href="#" class="menu_item">Log in</a>
         </div>
-    </div>
+    </nav>
 
-    <div class="main">
-        <div class="title">
-            <div class="title_first">
-                Listening is
+    <main class="main">
+        <div class="main_container">
+            <div class="title">
+                <div class="title_first">
+                    Listening is
+                </div>
+                <div>
+                    everything
+                </div>
             </div>
-            <div>
-                everything
+            <div class="sub_title">
+                Millions of songs and podcasts. No credit card needed.
+            </div>
+            <div class="button_area">
+                <button class="main_button">
+                    Get Spotify free
+                </button>
             </div>
         </div>
-        <div class="sub_title">
-            Millions of songs and podcasts. No credit card needed.
-        </div>
-        <div class="button_area">
-            <button class="main_button">
-                Get Spotify free
-            </button>
-        </div>
-    </div>
+    </main>
 
-    <div class="footer">
+    <footer class="footer">
         <div class="footer_container">
             <div class="footer_main">
                 <div class="footer_menu">
                     <div>
-                        <img src="https://import.cdn.thinkific.com/523761/courses/1473531/logo-210901-223656.png" class="logo_img"/>
+                        <img src="../assets/logo-210901-223656.png" class="logo_img"/>
                     </div>
                     <div class="column">
                         <div class="footer_menu_title">COMPANY</div>
@@ -71,18 +74,18 @@
                 </div>
                 <div class="footer_sns">
                     <div class="icon_box">
-                        <a href="#" class="footer_menu_item">IG</a>
+                        <i class="fab fa-instagram icon"></i>
                     </div>
                     <div class="icon_box">
-                        <a href="#" class="footer_menu_item">X</a>
+                        <i class="fab fa-twitter icon"></i>
                     </div>
                     <div class="icon_box">
-                    <a href="#" class="footer_menu_item">FB</a>
+                        <i class="fab fa-facebook-f icon"></i>
                     </div>
                 </div>
             </div>
             <div class="footer_first">
-                USA
+                <i class="fa-solid fa-earth-africa"></i>USA
             </div>
             <div class="footer_final">
                 <div class="footer_link_container">
@@ -98,6 +101,6 @@
                 </div>
             </div>
         </div>
-    </div>
+    </footer>
 </body>
 </html>

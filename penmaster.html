@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="penmaster_style.css">
+</head>
+<body>
+<!-- 메인 헤더 -->
+<div class="main-header">
+    <div class="container">
+        <!-- 로고 영역 -->
+        <div class="logo-area">
+            <h1><a href="/" style="text-decoration: none; color: inherit;">펜마스터</a></h1>
+        </div>
+        
+        <!-- 검색 영역 -->
+        <div class="search-area">
+            <form class="search-box" action="/product/search.html" method="get">
+                <input type="text" name="keyword" placeholder="브랜드명, 상품명을 검색하세요">
+                <button type="submit">🔍</button>
+            </form>
+        </div>
+        
+        <!-- 우측 메뉴 -->
+        <div class="header-right">
+            <a href="/myshop/wish_list.html" class="header-icon">
+                <i>♡</i>
+                <span>찜</span>
+            </a>
+            <a href="/order/basket.html" class="header-icon">
+                <i>🛒</i>
+                <span>장바구니</span>
+            </a>
+            <a href="/myshop/order/list.html" class="header-icon">
+                <i>📦</i>
+                <span>주문조회</span>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- 네비게이션 바 -->
+<div class="nav-bar">
+    <div class="nav-container">
+        <!-- 전체메뉴 버튼 -->
+        <div class="all-menu-btn">
+            <i>☰</i>
+            <span>전체</span>
+            
+            <!-- 메가메뉴 -->
+            <div class="mega-menu">
+                <div class="mega-menu-content">
+                    <!-- 독일 브랜드 -->
+                    <div class="brand-group">
+                        <h4><span class="flag">🇩🇪</span>독일 브랜드</h4>
+                        <ul>
+                            <li><a href="/product/list.html?cate_no=100">라미 <span class="brand-special">인기</span></a></li>
+                            <li><a href="/product/list.html?cate_no=101">몽블랑 <span class="brand-special">프리미엄</span></a></li>
+                            <li><a href="/product/list.html?cate_no=102">그라폰파버카스텔</a></li>
+                            <li><a href="/product/list.html?cate_no=103">파버카스텔 <span class="brand-special">인기</span></a></li>
+                            <li><a href="/product/list.html?cate_no=104">브라우스</a></li>
+                            <li><a href="/product/list.html?cate_no=105">펠리칸 <span class="brand-special">인기</span></a></li>
+                            <li><a href="/product/list.html?cate_no=106">로트링</a></li>
+                            <li><a href="/product/list.html?cate_no=107">스타빌로</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- 미국/영국/프랑스 브랜드 -->
+                    <div class="brand-group">
+                        <h4><span class="flag">🇺🇸</span>미국/영국/프랑스 브랜드</h4>
+                        <ul>
+                            <li><a href="/product/list.html?cate_no=200">크로스 <span class="brand-special">인기</span></a></li>
+                            <li><a href="/product/list.html?cate_no=201">프랭클린코비</a></li>
+                            <li><a href="/product/list.html?cate_no=202">쉐퍼 <span class="brand-special">인기</span></a></li>
+                            <li><a href="/product/list.html?cate_no=203">몰스킨 <span class="brand-special">NEW</span></a></li>
+                            <li><a href="/product/list.html?cate_no=400">파카 <span class="brand-special">인기</span></a></li>
+                            <li><a href="/product/list.html?cate_no=401">플래티그넘</a></li>
+                            <li><a href="/product/list.html?cate_no=500">워터맨 <span class="brand-special">인기</span></a></li>
+                            <li><a href="/product/list.html?cate_no=501">피에르가르뎅</a></li>
+                            <li><a href="/product/list.html?cate_no=502">마패드</a></li>
+                        </ul>
+                    </div>
+                    
+                    <!-- 일본/이탈리아/기타 브랜드 -->
+                    <div class="brand-group">
+                        <h4><span class="flag">🇯🇵</span>일본/이탈리아/기타 브랜드</h4>
+                        <ul>
+                            <li><a href="/product/list.html?cate_no=300">플래티넘 <span class="brand-special">인기</span></a></li>
+                            <li><a href="/product/list.html?cate_no=301">지그 ZIG</a></li>
+                            <li><a href="/product/list.html?cate_no=302">톰보우</a></li>
+                            <li><a href="/product/list.html?cate_no=303">페나크</a></li>
+                            <li><a href="/product/list.html?cate_no=600">오로라</a></li>
+                            <li><a href="/product/list.html?cate_no=601">루비나또</a></li>
+                            <li><a href="/product/list.html?cate_no=602">비스콘티</a></li>
+                            <li><a href="/product/list.html?cate_no=603">랜드스케이프</a></li>
+                            <li><a href="/product/list.html?cate_no=604">스위스밀리터리</a></li>
+                            <li><a href="/product/list.html?cate_no=700">+ 추가 브랜드</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- 메인 네비게이션 -->
+        <ul class="main-nav">
+            <li>
+                <a href="/product/list.html?cate_no=24">베스트상품</a>
+            </li>
+            <li>
+                <a href="/board/product/list.html?board_no=4">기업특판,단체주문</a>
+            </li>
+            <li>
+                <a href="#">각인 및 포장 서비스</a>
+                <ul class="sub-menu">
+                    <li><a href="/board/free/list.html?board_no=1">각인서비스 안내</a></li>
+                    <li><a href="/board/gallery/list.html?board_no=2">각인샘플게시판</a></li>
+                    <li><a href="/board/free/list.html?board_no=3">각인확인게시판</a></li>
+                    <li><a href="/board/free/list.html?board_no=5">포장안내</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">커뮤니티</a>
+                <ul class="sub-menu">
+                    <li><a href="/board/product/list.html?board_no=6">이용후기</a></li>
+                    <li><a href="/board/free/list.html?board_no=7">만년필 상식</a></li>
+                    <li><a href="/board/free/list.html?board_no=8">만년필 사용법</a></li>
+                    <li><a href="/board/free/list.html?board_no=9">브랜드소식</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">고객센터</a>
+                <ul class="sub-menu">
+                    <li><a href="/board/free/list.html?board_no=10">고객센터 안내</a></li>
+                    <li><a href="/board/free/list.html?board_no=11">공지사항</a></li>
+                    <li><a href="/board/qa/list.html?board_no=12">Q&A</a></li>
+                    <li><a href="/board/free/list.html?board_no=13">FAQ</a></li>
+                    <li><a href="/board/free/list.html?board_no=14">AS 안내</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="/board/event/list.html?board_no=15">이벤트</a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- 인기브랜드 세로메뉴 -->
+<div class="popular-brands" id="popularBrands">
+    <h5>인기브랜드</h5>
+    <ul>
+        <li><a href="/product/list.html?cate_no=100">라미</a></li>
+        <li><a href="/product/list.html?cate_no=101">몽블랑</a></li>
+        <li><a href="/product/list.html?cate_no=203">몰스킨</a></li>
+        <li><a href="/product/list.html?cate_no=400">파카</a></li>
+        <li><a href="/product/list.html?cate_no=500">워터맨</a></li>
+        <li><a href="/product/list.html?cate_no=103">파버카스텔</a></li>
+        <li><a href="/product/list.html?cate_no=200">크로스</a></li>
+        <li><a href="/product/list.html?cate_no=105">펠리칸</a></li>
+        <li><a href="/product/list.html?cate_no=202">쉐퍼</a></li>
+        <li><a href="/product/list.html?cate_no=300">플래티넘</a></li>
+    </ul>
+</div>
+
+<!-- 메인배너 슬라이더 -->
+<div class="main-banner-container">
+    <div class="banner-slides">
+        <!-- 배너 1 -->
+        <div class="banner-slide active">
+            <div class="banner-image-area" style="background-image: url('/design/m2m2com/0535vivian/main01.jpg')">
+            </div>
+        </div>
+        
+        <!-- 배너 2 -->
+        <div class="banner-slide">
+            <div class="banner-image-area" style="background-image: url('/design/m2m2com/0535vivian/main02.jpg')">
+            </div>
+        </div>
+        
+        <!-- 배너 3 -->
+        <div class="banner-slide">
+            <div class="banner-image-area" style="background-image: url('/design/m2m2com/0535vivian/main03.jpg')">
+            </div>
+        </div>
+        
+        <!-- 배너 4 -->
+        <div class="banner-slide">
+            <div class="banner-image-area" style="background-image: url('/design/m2m2com/0535vivian/main04.jpg')">
+            </div>
+        </div>
+        
+        <!-- 배너 5 -->
+        <div class="banner-slide">
+            <div class="banner-image-area" style="background-image: url('/design/m2m2com/0535vivian/main_banner01.jpg')">
+            </div>
+        </div>
+    </div>
+    
+    <!-- 좌우 화살표 -->
+    <div class="banner-nav prev" onclick="prevSlide()">‹</div>
+    <div class="banner-nav next" onclick="nextSlide()">›</div>
+    
+    <!-- 점 표시기 제거 -->
+     <!-- 점 표시기
+    <div class="dot-indicators">
+        <span class="dot active" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+        <span class="dot" onclick="currentSlide(4)"></span>
+        <span class="dot" onclick="currentSlide(5)"></span>
+    </div> -->
+    
+    <!-- 슬라이드 컨트롤 -->
+    <div class="banner-controls">
+        <div class="banner-indicators">
+            <span class="banner-current">01</span>
+            <div class="banner-progress-bar">
+                <div class="banner-progress"></div>
+            </div>
+            <span class="banner-total">05</span>
+            <button class="play-pause-control" id="playPauseBtn" onclick="togglePlayPause()">
+                <span id="playPauseIcon">⏸️</span>
+            </button>
+        </div>
+    </div>
+</div>
+
+
+<div class="category-icons-section">
+    <div class="category-container">
+        
+        <div class="category-grid">
+            <!-- 만년필 -->
+            <a href="/product/list.html?cate_no=101" class="category-item">
+                <div class="category-icon">
+                    <div class="category-icon-img">🖋️</div>
+                </div>
+                <p class="category-name">만년필</p>
+            </a>
+            
+            <!-- 볼펜 -->
+            <a href="/product/list.html?cate_no=102" class="category-item">
+                <div class="category-icon">
+                    <div class="category-icon-img">🖊️</div>
+                </div>
+                <p class="category-name">볼펜</p>
+            </a>
+            
+            <!-- 멀티펜 -->
+            <a href="/product/list.html?cate_no=103" class="category-item">
+                <div class="category-icon">
+                    <div class="category-icon-img">✒️</div>
+                </div>
+                <p class="category-name">멀티펜</p>
+            </a>
+            
+            <!-- 샤프 -->
+            <a href="/product/list.html?cate_no=104" class="category-item">
+                <div class="category-icon">
+                    <div class="category-icon-img">✏️</div>
+                </div>
+                <p class="category-name">샤프</p>
+            </a>
+            
+            <!-- 가죽지갑 -->
+            <a href="/product/list.html?cate_no=105" class="category-item">
+                <div class="category-icon">
+                    <div class="category-icon-img">👛</div>
+                </div>
+                <p class="category-name">가죽지갑</p>
+            </a>
+            
+            <!-- 머니클립 -->
+            <a href="/product/list.html?cate_no=106" class="category-item">
+                <div class="category-icon">
+                    <div class="category-icon-img">💳</div>
+                </div>
+                <p class="category-name">머니클립</p>
+            </a>
+            
+            <!-- 가죽파우치 -->
+            <a href="/product/list.html?cate_no=107" class="category-item">
+                <div class="category-icon">
+                    <div class="category-icon-img">👝</div>
+                </div>
+                <p class="category-name">가죽파우치</p>
+            </a>
+            
+            <!-- 연필 -->
+            <a href="/product/list.html?cate_no=108" class="category-item">
+                <div class="category-icon">
+                    <div class="category-icon-img">✐</div>
+                </div>
+                <p class="category-name">연필</p>
+            </a>
+            
+            <!-- 노트 -->
+            <a href="/product/list.html?cate_no=109" class="category-item">
+                <div class="category-icon">
+                    <div class="category-icon-img">📖</div>
+                </div>
+                <p class="category-name">노트</p>
+            </a>
+            
+            <!-- 잉크 -->
+            <a href="/product/list.html?cate_no=110" class="category-item">
+                <div class="category-icon">
+                    <div class="category-icon-img">🍶</div>
+                </div>
+                <p class="category-name">잉크</p>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+// 배너 슬라이드 제어
+let currentBannerSlide = 0;
+const bannerSlides = document.querySelectorAll('.banner-slide');
+const bannerProgressBar = document.querySelector('.banner-progress');
+const bannerCurrentNum = document.querySelector('.banner-current');
+const bannerTotalNum = document.querySelector('.banner-total');
+const playPauseBtn = document.getElementById('playPauseBtn');
+const playPauseIcon = document.getElementById('playPauseIcon');
+const BANNER_SLIDE_INTERVAL = 5000;
+let bannerSlideTimer;
+let bannerProgressTimer;
+let isPlaying = true;
+
+// 초기 설정
+bannerTotalNum.textContent = String(bannerSlides.length).padStart(2, '0');
+
+function updateBannerSlide(slideIndex = null) {
+    // 현재 슬라이드 비활성화
+    bannerSlides[currentBannerSlide].classList.remove('active');
+    
+    // 다음 슬라이드 인덱스 계산
+    if (slideIndex !== null) {
+        currentBannerSlide = slideIndex;
+    } else {
+        currentBannerSlide = (currentBannerSlide + 1) % bannerSlides.length;
+    }
+    
+    // 새 슬라이드 활성화
+    bannerSlides[currentBannerSlide].classList.add('active');
+    bannerCurrentNum.textContent = String(currentBannerSlide + 1).padStart(2, '0');
+}
+
+function updateBannerProgress() {
+    if (bannerProgressTimer) {
+        clearInterval(bannerProgressTimer);
+    }
+    
+    let progress = 0;
+    bannerProgressBar.style.width = '0%';
+    
+    bannerProgressTimer = setInterval(() => {
+        progress += (10 / BANNER_SLIDE_INTERVAL) * 100;
+        bannerProgressBar.style.width = `${progress}%`;
+        
+        if (progress >= 100) {
+            clearInterval(bannerProgressTimer);
+        }
+    }, 10);
+}
+
+function startBannerSlideshow() {
+    if (!isPlaying) return;
+    
+    if (bannerSlideTimer) clearInterval(bannerSlideTimer);
+    if (bannerProgressTimer) clearInterval(bannerProgressTimer);
+    
+    bannerProgressBar.style.width = '0%';
+    updateBannerProgress();
+    
+    bannerSlideTimer = setInterval(() => {
+        updateBannerSlide();
+        updateBannerProgress();
+    }, BANNER_SLIDE_INTERVAL);
+}
+
+function stopBannerSlideshow() {
+    if (bannerSlideTimer) clearInterval(bannerSlideTimer);
+    if (bannerProgressTimer) clearInterval(bannerProgressTimer);
+}
+
+// 재생/일시정지 토글 함수
+function togglePlayPause() {
+    if (isPlaying) {
+        // 일시정지
+        stopBannerSlideshow();
+        playPauseIcon.textContent = '▶️';
+        isPlaying = false;
+    } else {
+        // 재생
+        startBannerSlideshow();
+        playPauseIcon.textContent = '⏸️';
+        isPlaying = true;
+    }
+}
+
+// 수동 슬라이드 제어 함수들
+function nextSlide() {
+    updateBannerSlide();
+    if (isPlaying) {
+        startBannerSlideshow(); // 재생 중일 때만 타이머 재시작
+    }
+}
+
+function prevSlide() {
+    bannerSlides[currentBannerSlide].classList.remove('active');
+    
+    currentBannerSlide = currentBannerSlide === 0 ? bannerSlides.length - 1 : currentBannerSlide - 1;
+    
+    bannerSlides[currentBannerSlide].classList.add('active');
+    bannerCurrentNum.textContent = String(currentBannerSlide + 1).padStart(2, '0');
+    
+    if (isPlaying) {
+        startBannerSlideshow(); // 재생 중일 때만 타이머 재시작
+    }
+}
+
+function currentSlide(n) {
+    updateBannerSlide(n - 1);
+    if (isPlaying) {
+        startBannerSlideshow(); // 재생 중일 때만 타이머 재시작
+    }
+}
+
+// 슬라이드쇼 시작
+startBannerSlideshow();
+
+// 마우스 호버시 일시정지 기능 (재생 중일 때만)
+const bannerContainer = document.querySelector('.main-banner-container');
+bannerContainer.addEventListener('mouseenter', () => {
+    if (isPlaying) {
+        stopBannerSlideshow();
+    }
+});
+
+bannerContainer.addEventListener('mouseleave', () => {
+    if (isPlaying) {
+        startBannerSlideshow();
+    }
+});
+
+
+// 카테고리 클릭 이벤트 (필요시 추가 기능)
+document.querySelectorAll('.category-item').forEach(item => {
+    item.addEventListener('click', function(e) {
+        // 클릭 효과나 추가 기능이 필요한 경우 여기에 구현
+        const categoryName = this.querySelector('.category-name').textContent;
+        console.log(`${categoryName} 카테고리 클릭됨`);
+    });
+});
+</script>
+</body>
+</html>
