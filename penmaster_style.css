@@ -253,7 +253,7 @@
     box-shadow: 0 5px 20px rgba(0,0,0,0.15);
     opacity: 0;
     visibility: hidden;
-    z-index: 200;
+    z-index: 9999;
     max-height: 500px;
     overflow-y: auto;
     border-radius: 0 8px 8px 8px;
@@ -339,8 +339,8 @@
 /* 인기브랜드 세로메뉴 */
 .popular-brands {
     position: fixed;
-    left: 20px;
-    top: 200px;
+    left: 40px;
+    top: 250px;
     background: white;
     border-radius: 8px;
     box-shadow: 0 6px 20px rgba(0,0,0,0.12);
@@ -499,7 +499,7 @@
 }
 
 /* 카테고리 아이콘 섹션 */
-.category-section {
+.category-icons-section {
     background: #fff;
     padding: 60px 0;
     border-bottom: 1px solid #e0e0e0;
@@ -511,12 +511,31 @@
     padding: 0 20px;
 }
 
-.category-list {
+.category-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.category-title h2 {
+    font-size: 2.2em;
+    color: #8B4513;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-family: 'Brush Script MT', cursive;
+}
+
+.category-title p {
+    color: #666;
+    font-size: 1.1em;
+    margin: 0;
+}
+
+.category-grid {
     overflow: hidden;
     margin-bottom: 20px;
 }
 
-.category-box {
+.category-item {
     float: left;
     width: 10%;
     text-align: center;
@@ -524,11 +543,11 @@
     margin-bottom: 20px;
 }
 
-.category-box:hover {
+.category-item:hover {
     transform: translateY(-10px);
 }
 
-.category-circle {
+.category-icon {
     width: 80px;
     height: 80px;
     border-radius: 50%;
@@ -536,28 +555,27 @@
     margin: 0 auto 10px;
     position: relative;
     overflow: hidden;
-    line-height: 80px;
-    text-align: center;
 }
 
-.category-box:hover .category-circle {
+.category-item:hover .category-icon {
     background: #f0f8ff;
     box-shadow: 0 4px 15px rgba(139, 69, 19, 0.2);
 }
 
-.category-symbol {
+.category-icon-img {
     font-size: 28px;
     color: #8B4513;
-    display: inline-block;
-    vertical-align: middle;
-    line-height: normal;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.category-box:hover .category-symbol {
+.category-item:hover .category-icon-img {
     color: #654321;
 }
 
-.category-label {
+.category-name {
     color: #333;
     font-size: 13px;
     font-weight: 500;
@@ -565,26 +583,27 @@
     margin: 0;
 }
 
-.category-box:hover .category-label {
+.category-item:hover .category-name {
     color: #8B4513;
 }
 
+/* 반응형 */
 @media (max-width: 768px) {
-    .category-box {
+    .category-item {
         width: 20%;
     }
     
-    .category-circle {
+    .category-icon {
         width: 60px;
         height: 60px;
+    }
+    
+    .category-icon-img {
+        font-size: 20px;
         line-height: 60px;
     }
     
-    .category-symbol {
-        font-size: 20px;
-    }
-    
-    .category-label {
+    .category-name {
         font-size: 11px;
     }
 }

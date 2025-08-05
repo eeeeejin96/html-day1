@@ -12,8 +12,8 @@
 <div class="utility-bar">
     <div class="container">
         <div class="utility-left">
-            <span>📞 고객센터: 1588-0000</span>
-            <span>🕐 평일 09:00~18:00</span>
+            <span><i class="fa-solid fa-heart"></i> 고객센터: 1588-0000</span>
+            <span><i class="fa-solid fa-heart"></i> 평일 09:00~18:00</span>
         </div>
         <div class="utility-right">
             <a href="/member/login.html">로그인</a>
@@ -36,7 +36,9 @@
         <div class="search-area">
             <div class="search-box">
                 <input type="text" name="keyword" placeholder="브랜드명, 상품명을 검색하세요">
-                <button type="button" onclick="searchProducts()">🔍</button>
+                <button type="button" onclick="searchProducts()">
+                    <i class="fa-solid fa-heart"></i>
+                </button>
             </div>
         </div>
         
@@ -208,83 +210,94 @@
             </div>
             <span class="banner-total">05</span>
             <button class="play-pause-control" onclick="togglePlayPause()">
-                <span id="playPauseIcon">⏸️</span>
+                <i class="fa-solid fa-pause" id="playPauseIcon"></i>
             </button>
         </div>
     </div>
 </div>
 
-<div class="category-section">
+<!-- 카테고리 아이콘 영역 -->
+<div class="category-icons-section">
     <div class="category-container">
-        <div class="category-list">
-            <a href="/product/list.html?cate_no=101" class="category-box">
-                <div class="category-circle">
-                    <i class="fa-solid fa-heart category-symbol"></i>
+        <div class="category-grid">
+            <!-- 만년필 -->
+            <a href="/product/list.html?cate_no=101" class="category-item">
+                <div class="category-icon">
+                    <i class="fa-solid fa-heart category-icon-img"></i>
                 </div>
-                <p class="category-label">만년필</p>
+                <p class="category-name">만년필</p>
             </a>
             
-            <a href="/product/list.html?cate_no=102" class="category-box">
-                <div class="category-circle">
-                    <i class="fa-solid fa-heart category-symbol"></i>
+            <!-- 볼펜 -->
+            <a href="/product/list.html?cate_no=102" class="category-item">
+                <div class="category-icon">
+                    <i class="fa-solid fa-heart category-icon-img"></i>
                 </div>
-                <p class="category-label">볼펜</p>
+                <p class="category-name">볼펜</p>
             </a>
             
-            <a href="/product/list.html?cate_no=103" class="category-box">
-                <div class="category-circle">
-                    <i class="fa-solid fa-heart category-symbol"></i>
+            <!-- 멀티펜 -->
+            <a href="/product/list.html?cate_no=103" class="category-item">
+                <div class="category-icon">
+                    <i class="fa-solid fa-heart category-icon-img"></i>
                 </div>
-                <p class="category-label">멀티펜</p>
+                <p class="category-name">멀티펜</p>
             </a>
             
-            <a href="/product/list.html?cate_no=104" class="category-box">
-                <div class="category-circle">
-                    <i class="fa-solid fa-heart category-symbol"></i>
+            <!-- 샤프 -->
+            <a href="/product/list.html?cate_no=104" class="category-item">
+                <div class="category-icon">
+                    <i class="fa-solid fa-heart category-icon-img"></i>
                 </div>
-                <p class="category-label">샤프</p>
+                <p class="category-name">샤프</p>
             </a>
             
-            <a href="/product/list.html?cate_no=105" class="category-box">
-                <div class="category-circle">
-                    <i class="fa-solid fa-heart category-symbol"></i>
+            <!-- 가죽지갑 -->
+            <a href="/product/list.html?cate_no=105" class="category-item">
+                <div class="category-icon">
+                    <i class="fa-solid fa-heart category-icon-img"></i>
                 </div>
-                <p class="category-label">가죽지갑</p>
+                <p class="category-name">가죽지갑</p>
             </a>
             
-            <a href="/product/list.html?cate_no=106" class="category-box">
-                <div class="category-circle">
-                    <i class="fa-solid fa-heart category-symbol"></i>
+            <!-- 머니클립 -->
+            <a href="/product/list.html?cate_no=106" class="category-item">
+                <div class="category-icon">
+                    <i class="fa-solid fa-heart category-icon-img"></i>
                 </div>
-                <p class="category-label">머니클립</p>
+                <p class="category-name">머니클립</p>
             </a>
             
-            <a href="/product/list.html?cate_no=107" class="category-box">
-                <div class="category-circle">
-                    <i class="fa-solid fa-heart category-symbol"></i>
+            <!-- 가죽파우치 -->
+            <a href="/product/list.html?cate_no=107" class="category-item">
+                <div class="category-icon">
+                    <i class="fa-solid fa-heart category-icon-img"></i>
                 </div>
-                <p class="category-label">가죽파우치</p>
+                <p class="category-name">가죽파우치</p>
             </a>
             
-            <a href="/product/list.html?cate_no=108" class="category-box">
-                <div class="category-circle">
-                    <i class="fa-solid fa-heart category-symbol"></i>
+            <!-- 연필 -->
+            <a href="/product/list.html?cate_no=108" class="category-item">
+                <div class="category-icon">
+                    <i class="fa-solid fa-heart category-icon-img"></i>
                 </div>
-                <p class="category-label">연필</p>
+                <p class="category-name">연필</p>
             </a>
             
-            <a href="/product/list.html?cate_no=109" class="category-box">
-                <div class="category-circle">
-                    <i class="fa-solid fa-heart category-symbol"></i>
+            <!-- 노트 -->
+            <a href="/product/list.html?cate_no=109" class="category-item">
+                <div class="category-icon">
+                    <i class="fa-solid fa-heart category-icon-img"></i>
                 </div>
-                <p class="category-label">노트</p>
+                <p class="category-name">노트</p>
             </a>
             
-            <a href="/product/list.html?cate_no=110" class="category-box">
-                <div class="category-circle">
-                    <i class="fa-solid fa-heart category-symbol"></i>
+            <!-- 잉크 -->
+            <a href="/product/list.html?cate_no=110" class="category-item">
+                <div class="category-icon">
+                    <i class="fa-solid fa-heart category-icon-img"></i>
                 </div>
-                <p class="category-label">잉크</p>
+                <p class="category-name">잉크</p>
             </a>
         </div>
     </div>
@@ -293,7 +306,7 @@
 
 
 
-<script>
+<script type="text/javascript">
 // 검색 기능
 function searchProducts() {
     var keyword = document.querySelector('input[name="keyword"]');
@@ -407,12 +420,16 @@ function togglePlayPause() {
     if (isPlaying) {
         // 일시정지
         stopBannerSlideshow();
-        if (playPauseIcon) playPauseIcon.innerHTML = '▶️';
+        if (playPauseIcon) {
+            playPauseIcon.className = 'fa-solid fa-play';
+        }
         isPlaying = false;
     } else {
         // 재생
         startBannerSlideshow();
-        if (playPauseIcon) playPauseIcon.innerHTML = '⏸️';
+        if (playPauseIcon) {
+            playPauseIcon.className = 'fa-solid fa-pause';
+        }
         isPlaying = true;
     }
 }

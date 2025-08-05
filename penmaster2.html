@@ -1,0 +1,2186 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>펜마스터 - 프리미엄 필기구 전문몰</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 공통 섹션 스타일 */
+        .penm-section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .penm-section-header {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .penm-section-title {
+            font-size: 36px;
+            font-weight: 700;
+            color: #8E7C68;
+            margin-bottom: 15px;
+        }
+
+        .penm-section-subtitle {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .penm-more-btn {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #8E7C68;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .penm-more-btn:hover {
+            color: #ED7458;
+        }
+
+        .penm-more-btn i {
+            margin-left: 5px;
+            font-size: 12px;
+        }
+
+        /* 인기상품 섹션 */
+        .penm-popular-section {
+            background-color: #ffffff;
+            padding: 80px 0;
+        }
+
+        .penm-new-section {
+            background-color: #fafafa;
+            padding: 80px 0;
+        }
+
+        .penm-product-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .penm-product-item {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+
+        .penm-product-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .penm-product-thumb {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 1;
+        }
+
+        .penm-product-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .penm-product-item:hover .penm-product-img {
+            transform: scale(1.05);
+        }
+
+        .penm-product-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            padding: 4px 8px;
+            border-radius: 15px;
+            font-size: 11px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .penm-badge-popular {
+            background-color: #ED7458;
+        }
+
+        .penm-badge-new {
+            background-color: #8E7C68;
+        }
+
+        .penm-badge-sale {
+            background-color: #FFDC9F;
+            color: #8E7C68;
+        }
+
+        .penm-product-info {
+            padding: 20px;
+        }
+
+        .penm-brand-name {
+            font-size: 12px;
+            color: #8E7C68;
+            font-weight: 500;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .penm-product-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .penm-product-price {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .penm-original-price {
+            font-size: 13px;
+            color: #999;
+            text-decoration: line-through;
+        }
+
+        .penm-sale-price {
+            font-size: 16px;
+            font-weight: 700;
+            color: #ED7458;
+        }
+
+        /* 브랜드 스토리 섹션 */
+        .penm-brand-story-section {
+            background-color: #8E7C68;
+            padding: 100px 0;
+            color: white;
+        }
+
+        .penm-brand-story-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .penm-story-title {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            line-height: 1.2;
+        }
+
+        .penm-story-desc {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 35px;
+            opacity: 0.9;
+        }
+
+        .penm-story-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #ED7458;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .penm-story-btn:hover {
+            background-color: #FFDC9F;
+            color: #8E7C68;
+        }
+
+        .penm-brand-story-image img {
+            width: 100%;
+            border-radius: 12px;
+        }
+
+        /* 서비스 안내 섹션 */
+        .penm-service-section {
+            background-color: #ffffff;
+            padding: 80px 0;
+        }
+
+        .penm-service-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+
+        .penm-service-item {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: #fafafa;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .penm-service-item:hover {
+            background-color: #f5f2ee;
+            transform: translateY(-3px);
+        }
+
+        .penm-service-icon {
+            width: 60px;
+            height: 60px;
+            background-color: #ED7458;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 24px;
+        }
+
+        .penm-service-content h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #8E7C68;
+            margin-bottom: 12px;
+        }
+
+        .penm-service-content p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* 고객 후기 섹션 */
+        .penm-review-section {
+            background-color: #fafafa;
+            padding: 80px 0;
+        }
+
+        .penm-review-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .penm-review-item {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+        }
+
+        .penm-review-stars {
+            margin-bottom: 15px;
+        }
+
+        .penm-review-stars i {
+            color: #FFDC9F;
+            margin-right: 2px;
+        }
+
+        .penm-review-text {
+            font-size: 15px;
+            line-height: 1.6;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .penm-review-author {
+            font-size: 14px;
+            font-weight: 600;
+            color: #8E7C68;
+            margin-bottom: 5px;
+        }
+
+        .penm-review-product {
+            font-size: 12px;
+            color: #999;
+        }
+
+        /* 모바일 반응형 */
+        @media (max-width: 768px) {
+            .penm-section-title {
+                font-size: 28px;
+            }
+
+            .penm-section-subtitle {
+                font-size: 14px;
+            }
+
+            .penm-more-btn {
+                position: static;
+                transform: none;
+                display: inline-block;
+                margin-top: 10px;
+            }
+
+            .penm-popular-section,
+            .penm-new-section,
+            .penm-service-section,
+            .penm-review-section {
+                padding: 60px 0;
+            }
+
+            .penm-brand-story-section {
+                padding: 80px 0;
+            }
+
+            .penm-product-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .penm-brand-story-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .penm-story-title {
+                font-size: 32px;
+            }
+
+            .penm-service-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 25px;
+            }
+
+            .penm-review-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .penm-section-container {
+                padding: 0 15px;
+            }
+
+            .penm-section-header {
+                margin-bottom: 35px;
+            }
+
+            .penm-product-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .penm-service-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .penm-story-title {
+                font-size: 28px;
+            }
+
+            .penm-story-desc {
+                font-size: 14px;
+            }
+        }
+
+        /* 카테고리 메뉴 섹션 */
+        .penm-category-section {
+            background-color: #ffffff;
+            padding: 60px 20px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .penm-category-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .penm-category-grid {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 20px;
+            justify-items: center;
+        }
+
+        .penm-category-item {
+            text-align: center;
+        }
+
+        .penm-category-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+
+        .penm-category-link:hover {
+            transform: translateY(-5px);
+        }
+
+        .penm-category-icon {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: #f8f6f4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #f0ede9;
+        }
+
+        .penm-category-icon::before {
+            display: none;
+        }
+
+        .penm-category-icon .category-icon-img {
+            font-size: 32px;
+            color: #8E7C68;
+            transition: all 0.3s ease;
+        }
+
+        .penm-category-link:hover .penm-category-icon {
+            transform: scale(1.05);
+            background-color: #f5f2ee;
+            box-shadow: 0 4px 12px rgba(142, 124, 104, 0.15);
+        }
+
+        .penm-category-link:hover .penm-category-icon .category-icon-img {
+            color: #ED7458;
+        }
+
+        .penm-category-name {
+            font-size: 14px;
+            font-weight: 500;
+            color: #8E7C68;
+            transition: color 0.3s ease;
+        }
+
+        .penm-category-link:hover .penm-category-name {
+            color: #ED7458;
+            font-weight: 600;
+        }
+
+        /* 모바일 반응형 */
+        @media (max-width: 768px) {
+            .penm-category-section {
+                padding: 40px 10px;
+            }
+
+            .penm-category-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 15px;
+            }
+
+            .penm-category-icon {
+                width: 60px;
+                height: 60px;
+                margin-bottom: 10px;
+            }
+
+            .penm-category-icon .category-icon-img {
+                font-size: 24px;
+            }
+
+            .penm-category-name {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .penm-category-section {
+                padding: 30px 10px;
+            }
+
+            .penm-category-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 10px;
+            }
+
+            .penm-category-icon {
+                width: 50px;
+                height: 50px;
+                margin-bottom: 8px;
+            }
+
+            .penm-category-icon .category-icon-img {
+                font-size: 20px;
+            }
+
+            .penm-category-name {
+                font-size: 11px;
+            }
+        }
+
+        /* 메인 배너 슬라이더 */
+        .penm-main-slider {
+            position: relative;
+            width: 100%;
+            height: 500px;
+            overflow: hidden;
+            background-color: #f8f8f8;
+        }
+
+        .penm-slider-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .penm-slider-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .penm-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 0.8s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .penm-slide.penm-slide-active {
+            opacity: 1;
+        }
+
+        .penm-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .penm-slide-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            max-width: 600px;
+            padding: 0 20px;
+        }
+
+        .penm-slide-content h2 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+            line-height: 1.2;
+        }
+
+        .penm-slide-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+            line-height: 1.4;
+        }
+
+        .penm-slide-btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background-color: #ED7458;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .penm-slide-btn:hover {
+            background-color: #8E7C68;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        /* 슬라이더 네비게이션 */
+        .penm-slider-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 30px;
+            z-index: 3;
+            pointer-events: none;
+        }
+
+        .penm-slider-prev,
+        .penm-slider-next {
+            background-color: rgba(255,255,255,0.2);
+            border: 2px solid rgba(255,255,255,0.3);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 18px;
+            pointer-events: all;
+            backdrop-filter: blur(10px);
+        }
+
+        .penm-slider-prev:hover,
+        .penm-slider-next:hover {
+            background-color: rgba(237, 116, 88, 0.8);
+            border-color: rgba(237, 116, 88, 1);
+            transform: scale(1.1);
+        }
+
+        /* 슬라이더 인디케이터 */
+        .penm-slider-indicators {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 3;
+        }
+
+        .penm-indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            border: 2px solid rgba(255,255,255,0.5);
+            background-color: transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .penm-indicator.penm-indicator-active,
+        .penm-indicator:hover {
+            background-color: white;
+            border-color: white;
+        }
+
+        /* 모바일 반응형 */
+        @media (max-width: 768px) {
+            .penm-main-slider {
+                height: 400px;
+            }
+
+            .penm-slide-content h2 {
+                font-size: 32px;
+                margin-bottom: 15px;
+            }
+
+            .penm-slide-content p {
+                font-size: 16px;
+                margin-bottom: 25px;
+            }
+
+            .penm-slide-btn {
+                padding: 12px 28px;
+                font-size: 14px;
+            }
+
+            .penm-slider-nav {
+                padding: 0 20px;
+            }
+
+            .penm-slider-prev,
+            .penm-slider-next {
+                width: 45px;
+                height: 45px;
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .penm-main-slider {
+                height: 350px;
+            }
+
+            .penm-slide-content {
+                padding: 0 15px;
+                max-width: 400px;
+            }
+
+            .penm-slide-content h2 {
+                font-size: 28px;
+            }
+
+            .penm-slide-content p {
+                font-size: 14px;
+            }
+
+            .penm-slide-btn {
+                padding: 10px 24px;
+                font-size: 13px;
+            }
+
+            .penm-slider-prev,
+            .penm-slider-next {
+                width: 40px;
+                height: 40px;
+                font-size: 14px;
+            }
+
+            .penm-slider-indicators {
+                bottom: 20px;
+                gap: 12px;
+            }
+
+            .penm-indicator {
+                width: 10px;
+                height: 10px;
+            }
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #ffffff;
+        }
+
+        /* 헤더 상단 유틸리티 바 */
+        .penm-top-utility {
+            background-color: #8E7C68;
+            color: white;
+            padding: 8px 0;
+            font-size: 12px;
+        }
+
+        .penm-top-utility .penm-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .penm-top-left span {
+            margin-right: 20px;
+        }
+
+        .penm-top-right a {
+            color: white;
+            text-decoration: none;
+            margin-left: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .penm-top-right a:hover {
+            color: #FFDC9F;
+        }
+
+        /* 메인 헤더 */
+        .penm-header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .penm-header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        /* 로고 */
+        .penm-logo {
+            flex-shrink: 0;
+        }
+
+        .penm-logo img {
+            height: 50px;
+            width: auto;
+        }
+
+        /* 검색바 */
+        .penm-search-area {
+            flex: 1;
+            max-width: 500px;
+            margin: 0 40px;
+            position: relative;
+        }
+
+        .penm-search-box {
+            width: 100%;
+            height: 45px;
+            border: 2px solid #DDC9BC;
+            border-radius: 25px;
+            padding: 0 50px 0 20px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        .penm-search-box:focus {
+            border-color: #ED7458;
+        }
+
+        .penm-search-btn {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #8E7C68;
+            font-size: 18px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .penm-search-btn:hover {
+            color: #ED7458;
+        }
+
+        /* 헤더 우측 아이콘들 */
+        .penm-header-icons {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .penm-header-icon {
+            position: relative;
+            color: #8E7C68;
+            font-size: 22px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .penm-header-icon:hover {
+            color: #ED7458;
+        }
+
+        .penm-cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: #ED7458;
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 11px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        /* 모바일 메뉴 버튼 */
+        .penm-mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: #8E7C68;
+            cursor: pointer;
+        }
+
+        /* 네비게이션 전체 래퍼 */
+        .penm-nav-wrapper {
+            position: relative;
+            background-color: #f8f8f8;
+            border-top: 1px solid #eee;
+        }
+
+        /* 네비게이션 메뉴 */
+        .penm-nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 네비게이션 메뉴 - 메가메뉴 기준점 설정 */
+        .penm-nav-menu {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            position: relative;
+        }
+
+        .penm-nav-item {
+            position: relative;
+        }
+
+        .penm-nav-link {
+            display: block;
+            padding: 18px 20px;
+            color: #333;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .penm-nav-link:hover {
+            color: #ED7458;
+            background-color: white;
+        }
+
+        /* 전체브랜드 메뉴 특별 스타일 */
+        .penm-nav-item.penm-brands .penm-nav-link {
+            background-color: #8E7C68;
+            color: white;
+            font-weight: 600;
+            border-radius: 6px;
+            margin: 8px;
+            padding: 12px 24px;
+            border: 2px solid transparent;
+        }
+
+        .penm-nav-item.penm-brands .penm-nav-link:hover {
+            background-color: #ED7458;
+            color: white;
+            border-color: #8E7C68;
+        }
+
+        /* 일반 서브메뉴 스타일 */
+        .penm-submenu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            min-width: 200px;
+        }
+
+        .penm-nav-item:hover .penm-submenu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .penm-submenu-item {
+            list-style: none;
+        }
+
+        .penm-submenu-link {
+            display: block;
+            padding: 12px 20px;
+            color: #333;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid #f5f5f5;
+        }
+
+        .penm-submenu-link:hover {
+            background-color: #f8f8f8;
+            color: #ED7458;
+            padding-left: 25px;
+        }
+
+        .penm-submenu-item:last-child .penm-submenu-link {
+            border-bottom: none;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .penm-submenu-item:first-child .penm-submenu-link {
+            border-radius: 8px 8px 0 0;
+        }
+
+        /* 브랜드 메가메뉴 - 네비게이션 메뉴 시작점부터 끝점까지 */
+        .penm-brand-megamenu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: white;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            border-radius: 0 0 12px 12px;
+            border-top: 3px solid #8E7C68;
+        }
+
+        .penm-nav-item.penm-brands:hover .penm-brand-megamenu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* 브랜드 컨테이너 - 수정된 부분 */
+        .penm-brand-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 40px;
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 30px;
+        }
+
+        .penm-brand-column {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .penm-brand-country {
+            border-left: 2px solid #ED7458;
+            padding-left: 15px;
+        }
+
+        .penm-brand-country.penm-second-country {
+            border-left: 2px solid #8E7C68;
+            margin-top: 5px;
+        }
+
+        .penm-brand-country h4 {
+            color: #8E7C68;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .penm-brand-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+        }
+
+        .penm-brand-list li {
+            margin-bottom: 0;
+        }
+
+        .penm-brand-list a {
+            color: #666;
+            text-decoration: none;
+            font-size: 11px;
+            transition: all 0.3s ease;
+            display: block;
+            padding: 3px 0;
+            white-space: nowrap;
+            line-height: 1.2;
+        }
+
+        .penm-brand-list a:hover {
+            color: #ED7458;
+            padding-left: 8px;
+        }
+
+        /* 모바일 반응형 */
+        @media (max-width: 768px) {
+            .penm-top-utility {
+                font-size: 11px;
+            }
+
+            .penm-top-utility .penm-container {
+                padding: 0 15px;
+            }
+
+            .penm-top-left span {
+                margin-right: 10px;
+            }
+
+            .penm-top-right a {
+                margin-left: 10px;
+            }
+
+            .penm-header-container {
+                height: 70px;
+                padding: 0 15px;
+            }
+
+            .penm-logo img {
+                height: 40px;
+            }
+
+            .penm-search-area {
+                margin: 0 15px;
+                max-width: none;
+            }
+
+            .penm-search-box {
+                height: 40px;
+                font-size: 13px;
+            }
+
+            .penm-header-icons {
+                gap: 15px;
+            }
+
+            .penm-header-icon {
+                font-size: 20px;
+            }
+
+            .penm-mobile-menu-btn {
+                display: block;
+            }
+
+            .penm-nav-wrapper {
+                display: none;
+            }
+
+            .penm-nav-wrapper.penm-mobile-open {
+                display: block;
+            }
+
+            .penm-nav-menu {
+                flex-direction: column;
+            }
+
+            .penm-nav-item.penm-brands .penm-nav-link {
+                background-color: #8E7C68;
+                border-radius: 0;
+                margin: 0;
+                padding: 15px 20px;
+                border: none;
+            }
+
+            .penm-nav-item.penm-brands .penm-nav-link:hover {
+                background-color: #ED7458;
+            }
+
+            .penm-nav-link {
+                padding: 15px 20px;
+                border-bottom: 1px solid #eee;
+            }
+
+            .penm-submenu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                background: #f9f9f9;
+                border-radius: 0;
+                display: none;
+            }
+
+            .penm-nav-item:hover .penm-submenu {
+                display: block;
+            }
+
+            .penm-submenu-link {
+                padding: 10px 30px;
+                font-size: 13px;
+            }
+
+            .penm-brand-megamenu {
+                position: static;
+                opacity: 1;
+                visibility: visible;
+                transform: none;
+                box-shadow: none;
+                background: #f9f9f9;
+                border-radius: 0;
+                display: none;
+                border-top: 2px solid #8E7C68;
+                width: 100%;
+            }
+
+            .penm-nav-item.penm-brands:hover .penm-brand-megamenu {
+                display: block;
+            }
+
+            .penm-brand-container {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+                padding: 25px 20px;
+            }
+
+            .penm-brand-column {
+                gap: 15px;
+            }
+
+            .penm-brand-country {
+                border-left: none;
+                border-top: 2px solid #ED7458;
+                padding-left: 0;
+                padding-top: 15px;
+            }
+
+            .penm-brand-country.penm-second-country {
+                border-left: none;
+                border-top: 2px solid #8E7C68;
+                margin-top: 0;
+                padding-top: 15px;
+            }
+
+            .penm-brand-country h4 {
+                font-size: 12px;
+            }
+
+            .penm-brand-list a {
+                font-size: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .penm-search-area {
+                margin: 0 10px;
+            }
+
+            .penm-header-icons {
+                gap: 12px;
+            }
+
+            .penm-header-icon {
+                font-size: 18px;
+            }
+
+            .penm-nav-link {
+                padding: 12px 15px;
+                font-size: 14px;
+            }
+
+            .penm-brand-container {
+                padding: 15px;
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .penm-brand-column {
+                gap: 12px;
+            }
+
+            .penm-brand-country h4 {
+                font-size: 12px;
+            }
+
+            .penm-brand-list a {
+                font-size: 10px;
+            }
+        }
+
+        /* ========== 푸터 스타일 시작 ========== */
+        .penm-footer {
+            background-color: #f8f8f8;
+            border-top: 1px solid #e0e0e0;
+            margin-top: 80px;
+        }
+
+        .penm-footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 푸터 상단 네비게이션 */
+        .penm-footer-top {
+            border-bottom: 1px solid #e0e0e0;
+            padding: 20px 0;
+            background-color: #f0f0f0;
+        }
+
+        .penm-footer-nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: flex-start;
+        }
+
+        .penm-footer-nav a {
+            font-size: 13px;
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .penm-footer-nav a:hover {
+            color: #ED7458;
+        }
+
+        /* 푸터 메인 영역 */
+        .penm-footer-main {
+            padding: 40px 0;
+        }
+
+        .penm-footer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 50px;
+        }
+
+        /* 고객센터 정보 */
+        .penm-cs-title,
+        .penm-bank-title,
+        .penm-info-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #8E7C68;
+            margin-bottom: 15px;
+        }
+
+        .penm-cs-phone {
+            font-size: 24px;
+            font-weight: 700;
+            color: #ED7458;
+            margin-bottom: 10px;
+        }
+
+        .penm-cs-hours p {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.4;
+            margin-bottom: 3px;
+        }
+
+        /* 계좌이체 정보 */
+        .penm-bank-info p {
+            font-size: 13px;
+            color: #666;
+            line-height: 1.4;
+            margin-bottom: 3px;
+        }
+
+        /* 쇼핑정보 링크 */
+        .penm-info-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .penm-info-links a {
+            font-size: 13px;
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .penm-info-links a:hover {
+            color: #ED7458;
+        }
+
+        /* 푸터 하단 영역 */
+        .penm-footer-bottom {
+            border-top: 1px solid #e0e0e0;
+            padding: 30px 0;
+            background-color: #f0f0f0;
+        }
+
+        .penm-footer-company-info {
+            margin-bottom: 15px;
+        }
+
+        .penm-footer-company-info p {
+            font-size: 12px;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 5px;
+        }
+
+        .penm-footer-copyright p {
+            font-size: 11px;
+            color: #999;
+            line-height: 1.4;
+            margin-bottom: 3px;
+            text-align: center;
+        }
+
+        /* 푸터 모바일 반응형 */
+        @media (max-width: 768px) {
+            .penm-footer-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .penm-cs-phone {
+                font-size: 20px;
+            }
+
+            .penm-footer-nav {
+                gap: 15px;
+            }
+
+            .penm-footer-nav a {
+                font-size: 12px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .penm-footer-main {
+                padding: 30px 0;
+            }
+
+            .penm-footer-bottom {
+                padding: 20px 0;
+            }
+
+            .penm-footer-container {
+                padding: 0 15px;
+            }
+
+            .penm-cs-phone {
+                font-size: 18px;
+            }
+
+            .penm-footer-nav {
+                gap: 10px;
+            }
+        }
+        /* ========== 푸터 스타일 끝 ========== */
+    </style>
+</head>
+<body>
+    <!-- 상단 유틸리티 바 -->
+    <div class="penm-top-utility">
+        <div class="penm-container">
+            <div class="penm-top-left">
+                <span><i class="fa-solid fa-hashtag"></i> 프리미엄 필기구 전문몰</span>
+                <span><i class="fa-solid fa-hashtag"></i> 각인 포장 서비스</span>
+            </div>
+            <div class="penm-top-right">
+                <a href="#"> 로그인</a>
+                <a href="#"> 회원가입</a>
+                <a href="#"> 주문배송</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- 메인 헤더 -->
+    <header class="penm-header">
+        <div class="penm-header-container">
+            <!-- 로고 -->
+            <div class="penm-logo">
+                <a href="/">
+                    <img src="https://cdn.imweb.me/upload/S202412123c3b63e7f7510/6d7b20046d7af.png" alt="펜마스터" />
+                </a>
+            </div>
+
+            <!-- 검색바 -->
+            <div class="penm-search-area">
+                <input type="text" class="penm-search-box" placeholder="원하시는 상품을 검색해보세요">
+                <button class="penm-search-btn">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div>
+
+            <!-- 헤더 아이콘들 -->
+            <div class="penm-header-icons">
+                <div class="penm-header-icon">
+                    <i class="fa-solid fa-circle-user"></i>
+                </div>
+                <div class="penm-header-icon">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="penm-cart-count">0</span>
+                </div>
+                <button class="penm-mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- 네비게이션 메뉴 래퍼 -->
+    <div class="penm-nav-wrapper" id="penm-nav-wrapper">
+        <nav class="penm-nav">
+            <ul class="penm-nav-menu">
+                <!-- 전체브랜드 (특별메뉴) -->
+                <li class="penm-nav-item penm-brands">
+                    <a href="#" class="penm-nav-link">전체브랜드</a>
+                    <div class="penm-brand-megamenu">
+                        <div class="penm-brand-container">
+                            <div class="penm-brand-column">
+                                <div class="penm-brand-country">
+                                    <h4>독일</h4>
+                                    <ul class="penm-brand-list">
+                                        <li><a href="#">라미</a></li>
+                                        <li><a href="#">몽블랑</a></li>
+                                        <li><a href="#">그라폰파버카스텔</a></li>
+                                        <li><a href="#">파버카스텔</a></li>
+                                        <li><a href="#">브라우스</a></li>
+                                        <li><a href="#">펠리칸</a></li>
+                                        <li><a href="#">로트링</a></li>
+                                        <li><a href="#">카웨코</a></li>
+                                        <li><a href="#">스타빌로</a></li>
+                                        <li><a href="#">로이텀</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="penm-brand-column">
+                                <div class="penm-brand-country">
+                                    <h4>일본</h4>
+                                    <ul class="penm-brand-list">
+                                        <li><a href="#">플래티넘</a></li>
+                                        <li><a href="#">지그 ZIG</a></li>
+                                        <li><a href="#">톰보우</a></li>
+                                        <li><a href="#">우찌다</a></li>
+                                        <li><a href="#">사쿠라</a></li>
+                                        <li><a href="#">세일러</a></li>
+                                        <li><a href="#">미도리</a></li>
+                                    </ul>
+                                </div>
+                                <div class="penm-brand-country penm-second-country">
+                                    <h4>미국</h4>
+                                    <ul class="penm-brand-list">
+                                        <li><a href="#">크로스</a></li>
+                                        <li><a href="#">프랭클린코비</a></li>
+                                        <li><a href="#">쉐퍼</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="penm-brand-column">
+                                <div class="penm-brand-country">
+                                    <h4>영국</h4>
+                                    <ul class="penm-brand-list">
+                                        <li><a href="#">파카</a></li>
+                                        <li><a href="#">플래티그넘</a></li>
+                                        <li><a href="#">옥스퍼드</a></li>
+                                    </ul>
+                                </div>
+                                <div class="penm-brand-country penm-second-country">
+                                    <h4>스위스</h4>
+                                    <ul class="penm-brand-list">
+                                        <li><a href="#">스위스스탈리터</a></li>
+                                        <li><a href="#">렌드스케이프</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="penm-brand-column">
+                                <div class="penm-brand-country">
+                                    <h4>프랑스</h4>
+                                    <ul class="penm-brand-list">
+                                        <li><a href="#">워터맨</a></li>
+                                        <li><a href="#">브라우스</a></li>
+                                        <li><a href="#">피에르가르뎅</a></li>
+                                        <li><a href="#">마패드</a></li>
+                                        <li><a href="#">쿼바디스</a></li>
+                                        <li><a href="#">조지라로</a></li>
+                                        <li><a href="#">로디아</a></li>
+                                        <li><a href="#">클레르퐁텐</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="penm-brand-column">
+                                <div class="penm-brand-country">
+                                    <h4>이탈리아</h4>
+                                    <ul class="penm-brand-list">
+                                        <li><a href="#">오로라</a></li>
+                                        <li><a href="#">루비나또</a></li>
+                                        <li><a href="#">비스콘티</a></li>
+                                        <li><a href="#">라니북</a></li>
+                                        <li><a href="#">몰스킨</a></li>
+                                    </ul>
+                                </div>
+                                <div class="penm-brand-country penm-second-country">
+                                    <h4>전문잉크</h4>
+                                    <ul class="penm-brand-list">
+                                        <li><a href="#">제이허빈</a></li>
+                                        <li><a href="#">윈저</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- 베스트상품 -->
+                <li class="penm-nav-item">
+                    <a href="#" class="penm-nav-link">베스트상품</a>
+                </li>
+
+                <!-- 기업특판,단체주문 -->
+                <li class="penm-nav-item">
+                    <a href="#" class="penm-nav-link">기업특판,단체주문</a>
+                </li>
+
+                <!-- 각인 및 포장 서비스 -->
+                <li class="penm-nav-item">
+                    <a href="#" class="penm-nav-link">각인 및 포장 서비스</a>
+                    <ul class="penm-submenu">
+                        <li class="penm-submenu-item"><a href="#" class="penm-submenu-link">각인서비스 안내</a></li>
+                        <li class="penm-submenu-item"><a href="#" class="penm-submenu-link">각인샘플게시판</a></li>
+                        <li class="penm-submenu-item"><a href="#" class="penm-submenu-link">각인확인게시판</a></li>
+                        <li class="penm-submenu-item"><a href="#" class="penm-submenu-link">포장안내</a></li>
+                    </ul>
+                </li>
+
+                <!-- 커뮤니티 -->
+                <li class="penm-nav-item">
+                    <a href="#" class="penm-nav-link">커뮤니티</a>
+                    <ul class="penm-submenu">
+                        <li class="penm-submenu-item"><a href="#" class="penm-submenu-link">이용후기</a></li>
+                        <li class="penm-submenu-item"><a href="#" class="penm-submenu-link">만년필 상식</a></li>
+                        <li class="penm-submenu-item"><a href="#" class="penm-submenu-link">만년필 사용법</a></li>
+                        <li class="penm-submenu-item"><a href="#" class="penm-submenu-link">브랜드소식</a></li>
+                    </ul>
+                </li>
+
+                <!-- 고객센터 -->
+                <li class="penm-nav-item">
+                    <a href="#" class="penm-nav-link">고객센터</a>
+                    <ul class="penm-submenu">
+                        <li class="penm-submenu-item"><a href="#" class="penm-submenu-link">고객센터 안내</a></li>
+                        <li class="penm-submenu-item"><a href="#" class="penm-submenu-link">공지사항</a></li>
+                        <li class="penm-submenu-item"><a href="#" class="penm-submenu-link">Q&A</a></li>
+                        <li class="penm-submenu-item"><a href="#" class="penm-submenu-link">FAQ</a></li>
+                        <li class="penm-submenu-item"><a href="#" class="penm-submenu-link">AS 안내</a></li>
+                    </ul>
+                </li>
+
+                <!-- 이벤트 -->
+                <li class="penm-nav-item">
+                    <a href="#" class="penm-nav-link">이벤트</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- 메인 배너 슬라이더 -->
+    <section class="penm-main-slider">
+        <div class="penm-slider-container">
+            <div class="penm-slider-wrapper">
+                <div class="penm-slide penm-slide-active">
+                    <img src="..." alt="메인 배너 1" />
+                    <div class="penm-slide-content">
+                        <h2>프리미엄 필기구의 세계</h2>
+                        <p>세계 최고의 브랜드들을 만나보세요</p>
+                        <a href="#" class="penm-slide-btn">자세히 보기</a>
+                    </div>
+                </div>
+                <div class="penm-slide">
+                    <img src="..." alt="메인 배너 2" />
+                    <div class="penm-slide-content">
+                        <h2>특별한 각인 서비스</h2>
+                        <p>당신만의 특별한 필기구를 완성하세요</p>
+                        <a href="#" class="penm-slide-btn">각인 신청</a>
+                    </div>
+                </div>
+                <div class="penm-slide">
+                    <img src="..." alt="메인 배너 3" />
+                    <div class="penm-slide-content">
+                        <h2>신제품 출시</h2>
+                        <p>최신 컬렉션을 가장 먼저 만나보세요</p>
+                        <a href="#" class="penm-slide-btn">신제품 보기</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 슬라이더 네비게이션 -->
+            <div class="penm-slider-nav">
+                <button class="penm-slider-prev" onclick="prevSlide()">
+                    <i class="fa-solid fa-chevron-left"></i>
+                </button>
+                <button class="penm-slider-next" onclick="nextSlide()">
+                    <i class="fa-solid fa-chevron-right"></i>
+                </button>
+            </div>
+            
+            <!-- 슬라이더 인디케이터 -->
+            <div class="penm-slider-indicators">
+                <button class="penm-indicator penm-indicator-active" onclick="currentSlide(1)"></button>
+                <button class="penm-indicator" onclick="currentSlide(2)"></button>
+                <button class="penm-indicator" onclick="currentSlide(3)"></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 카테고리 메뉴 섹션 -->
+    <section class="penm-category-section">
+        <div class="penm-category-container">
+            <div class="penm-category-grid">
+                <div class="penm-category-item">
+                    <a href="#" class="penm-category-link">
+                        <div class="penm-category-icon">
+                            <i class="fa-solid fa-pen-nib category-icon-img"></i>
+                        </div>
+                        <span class="penm-category-name">만년필</span>
+                    </a>
+                </div>
+                <div class="penm-category-item">
+                    <a href="#" class="penm-category-link">
+                        <div class="penm-category-icon">
+                            <i class="fa-solid fa-pen-clip category-icon-img"></i>
+                        </div>
+                        <span class="penm-category-name">볼펜</span>
+                    </a>
+                </div>
+                <div class="penm-category-item">
+                    <a href="#" class="penm-category-link">
+                        <div class="penm-category-icon">
+                            <i class="fa-solid fa-marker category-icon-img"></i>
+                        </div>
+                        <span class="penm-category-name">멀티펜</span>
+                    </a>
+                </div>
+                <div class="penm-category-item">
+                    <a href="#" class="penm-category-link">
+                        <div class="penm-category-icon">
+                            <i class="fa-solid fa-pen category-icon-img"></i>
+                        </div>
+                        <span class="penm-category-name">샤프</span>
+                    </a>
+                </div>
+                <div class="penm-category-item">
+                    <a href="#" class="penm-category-link">
+                        <div class="penm-category-icon">
+                            <i class="fa-solid fa-pencil category-icon-img"></i>
+                        </div>
+                        <span class="penm-category-name">연필</span>
+                    </a>
+                </div>
+                <div class="penm-category-item">
+                    <a href="#" class="penm-category-link">
+                        <div class="penm-category-icon">
+                            <i class="fa-solid fa-book category-icon-img"></i>
+                        </div>
+                        <span class="penm-category-name">노트</span>
+                    </a>
+                </div>
+                <div class="penm-category-item">
+                    <a href="#" class="penm-category-link">
+                        <div class="penm-category-icon">
+                            <i class="fa-solid fa-wallet category-icon-img"></i>
+                        </div>
+                        <span class="penm-category-name">가죽지갑/파우치</span>
+                    </a>
+                </div>
+                <div class="penm-category-item">
+                    <a href="#" class="penm-category-link">
+                        <div class="penm-category-icon">
+                            <i class="fa-solid fa-droplet category-icon-img"></i>
+                        </div>
+                        <span class="penm-category-name">잉크</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 인기상품 섹션 -->
+    <section class="penm-popular-section">
+        <div class="penm-section-container">
+            <div class="penm-section-header">
+                <h2 class="penm-section-title">인기상품</h2>
+                <p class="penm-section-subtitle">고객들이 가장 많이 선택한 베스트 상품</p>
+                <a href="#" class="penm-more-btn">더보기 <i class="fa-solid fa-chevron-right"></i></a>
+            </div>
+            <div class="penm-product-grid">
+                <div class="penm-product-item">
+                    <div class="penm-product-thumb">
+                        <a href="#">
+                            <img src="..." alt="상품이미지" class="penm-product-img">
+                            <div class="penm-product-badge penm-badge-popular">인기</div>
+                        </a>
+                    </div>
+                    <div class="penm-product-info">
+                        <div class="penm-brand-name">라미</div>
+                        <div class="penm-product-name">라미 사파리 만년필</div>
+                        <div class="penm-product-price">
+                            <span class="penm-original-price">65,000원</span>
+                            <span class="penm-sale-price">58,500원</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="penm-product-item">
+                    <div class="penm-product-thumb">
+                        <a href="#">
+                            <img src="..." alt="상품이미지" class="penm-product-img">
+                        </a>
+                    </div>
+                    <div class="penm-product-info">
+                        <div class="penm-brand-name">몽블랑</div>
+                        <div class="penm-product-name">몽블랑 마이스터슈튀크 볼펜</div>
+                        <div class="penm-product-price">
+                            <span class="penm-sale-price">450,000원</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="penm-product-item">
+                    <div class="penm-product-thumb">
+                        <a href="#">
+                            <img src="..." alt="상품이미지" class="penm-product-img">
+                            <div class="penm-product-badge penm-badge-sale">10%</div>
+                        </a>
+                    </div>
+                    <div class="penm-product-info">
+                        <div class="penm-brand-name">파버카스텔</div>
+                        <div class="penm-product-name">파버카스텔 그리폰 만년필</div>
+                        <div class="penm-product-price">
+                            <span class="penm-original-price">320,000원</span>
+                            <span class="penm-sale-price">288,000원</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="penm-product-item">
+                    <div class="penm-product-thumb">
+                        <a href="#">
+                            <img src="..." alt="상품이미지" class="penm-product-img">
+                        </a>
+                    </div>
+                    <div class="penm-product-info">
+                        <div class="penm-brand-name">펠리칸</div>
+                        <div class="penm-product-name">펠리칸 수베린 M800</div>
+                        <div class="penm-product-price">
+                            <span class="penm-sale-price">580,000원</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 브랜드 스토리 섹션 -->
+    <section class="penm-brand-story-section">
+        <div class="penm-section-container">
+            <div class="penm-brand-story-content">
+                <div class="penm-brand-story-text">
+                    <h2 class="penm-story-title">프리미엄 필기구의 세계</h2>
+                    <p class="penm-story-desc">
+                        100년 이상의 전통을 자랑하는 세계 최고의 필기구 브랜드들을<br>
+                        펜마스터에서 만나보세요. 장인정신이 담긴 완벽한 필기감을 경험하실 수 있습니다.
+                    </p>
+                    <a href="#" class="penm-story-btn">브랜드 스토리 보기</a>
+                </div>
+                <div class="penm-brand-story-image">
+                    <img src="..." alt="브랜드 스토리" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 신상품 섹션 -->
+    <section class="penm-new-section">
+        <div class="penm-section-container">
+            <div class="penm-section-header">
+                <h2 class="penm-section-title">신상품</h2>
+                <p class="penm-section-subtitle">최신 출시된 프리미엄 필기구</p>
+                <a href="#" class="penm-more-btn">더보기 <i class="fa-solid fa-chevron-right"></i></a>
+            </div>
+            <div class="penm-product-grid">
+                <div class="penm-product-item">
+                    <div class="penm-product-thumb">
+                        <a href="#">
+                            <img src="..." alt="상품이미지" class="penm-product-img">
+                            <div class="penm-product-badge penm-badge-new">NEW</div>
+                        </a>
+                    </div>
+                    <div class="penm-product-info">
+                        <div class="penm-brand-name">비스콘티</div>
+                        <div class="penm-product-name">비스콘티 호모사피엔스 2024</div>
+                        <div class="penm-product-price">
+                            <span class="penm-sale-price">850,000원</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="penm-product-item">
+                    <div class="penm-product-thumb">
+                        <a href="#">
+                            <img src="..." alt="상품이미지" class="penm-product-img">
+                            <div class="penm-product-badge penm-badge-new">NEW</div>
+                        </a>
+                    </div>
+                    <div class="penm-product-info">
+                        <div class="penm-brand-name">오로라</div>
+                        <div class="penm-product-name">오로라 88 스페셜 에디션</div>
+                        <div class="penm-product-price">
+                            <span class="penm-sale-price">1,200,000원</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="penm-product-item">
+                    <div class="penm-product-thumb">
+                        <a href="#">
+                            <img src="..." alt="상품이미지" class="penm-product-img">
+                            <div class="penm-product-badge penm-badge-new">NEW</div>
+                        </a>
+                    </div>
+                    <div class="penm-product-info">
+                        <div class="penm-brand-name">세일러</div>
+                        <div class="penm-product-name">세일러 프로기어 리미티드</div>
+                        <div class="penm-product-price">
+                            <span class="penm-sale-price">380,000원</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="penm-product-item">
+                    <div class="penm-product-thumb">
+                        <a href="#">
+                            <img src="..." alt="상품이미지" class="penm-product-img">
+                            <div class="penm-product-badge penm-badge-new">NEW</div>
+                        </a>
+                    </div>
+                    <div class="penm-product-info">
+                        <div class="penm-brand-name">카웨코</div>
+                        <div class="penm-product-name">카웨코 스포츠 브론즈</div>
+                        <div class="penm-product-price">
+                            <span class="penm-sale-price">95,000원</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 서비스 안내 섹션 -->
+    <section class="penm-service-section">
+        <div class="penm-section-container">
+            <div class="penm-service-grid">
+                <div class="penm-service-item">
+                    <div class="penm-service-icon">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <div class="penm-service-content">
+                        <h3>무료 각인 서비스</h3>
+                        <p>구매하신 모든 필기구에<br>무료 각인 서비스를 제공합니다</p>
+                    </div>
+                </div>
+                <div class="penm-service-item">
+                    <div class="penm-service-icon">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <div class="penm-service-content">
+                        <h3>전문 A/S 센터</h3>
+                        <p>숙련된 기술진이 제공하는<br>전문적인 수리 서비스</p>
+                    </div>
+                </div>
+                <div class="penm-service-item">
+                    <div class="penm-service-icon">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <div class="penm-service-content">
+                        <h3>당일 발송</h3>
+                        <p>오후 2시 이전 주문 시<br>당일 발송 서비스</p>
+                    </div>
+                </div>
+                <div class="penm-service-item">
+                    <div class="penm-service-icon">
+                        <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <div class="penm-service-content">
+                        <h3>품질 보증</h3>
+                        <p>모든 상품 정품 보증<br>및 품질 만족 보장</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 고객 후기 섹션 -->
+    <section class="penm-review-section">
+        <div class="penm-section-container">
+            <div class="penm-section-header">
+                <h2 class="penm-section-title">고객 후기</h2>
+                <p class="penm-section-subtitle">펜마스터를 이용해주신 고객님들의 생생한 후기</p>
+            </div>
+            <div class="penm-review-grid">
+                <div class="penm-review-item">
+                    <div class="penm-review-stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="penm-review-text">"각인 서비스가 정말 세심하고 예뻐요. 선물용으로 완벽했습니다!"</p>
+                    <div class="penm-review-author">김○○님</div>
+                    <div class="penm-review-product">라미 사파리 만년필</div>
+                </div>
+                <div class="penm-review-item">
+                    <div class="penm-review-stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="penm-review-text">"포장도 고급스럽고 배송도 빨라서 만족스러워요."</p>
+                    <div class="penm-review-author">박○○님</div>
+                    <div class="penm-review-product">몽블랑 마이스터슈튀크</div>
+                </div>
+                <div class="penm-review-item">
+                    <div class="penm-review-stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="penm-review-text">"A/S도 친절하고 빠르게 해주셔서 계속 이용하고 있어요."</p>
+                    <div class="penm-review-author">이○○님</div>
+                    <div class="penm-review-product">파버카스텔 그리폰</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== 푸터 섹션 시작 ========== -->
+    <footer class="penm-footer">
+        <!-- 푸터 상단 네비게이션 -->
+        <div class="penm-footer-top">
+            <div class="penm-footer-container">
+                <div class="penm-footer-nav">
+                    <a href="#">홈</a>
+                    <a href="#">회사소개</a>
+                    <a href="#">이용안내</a>
+                    <a href="#">이용약관</a>
+                    <a href="#">개인정보취급방침</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- 푸터 메인 영역 -->
+        <div class="penm-footer-main">
+            <div class="penm-footer-container">
+                <div class="penm-footer-content">
+                    <!-- 왼쪽: 고객센터 정보 -->
+                    <div class="penm-footer-left">
+                        <div class="penm-footer-cs">
+                            <h3 class="penm-cs-title">고객센터</h3>
+                            <div class="penm-cs-phone">02-575-2048</div>
+                            <div class="penm-cs-hours">
+                                <p>통화 가능시간 오전 09:30 ~ 오후 6:00</p>
+                                <p>점심시간 오후 12:00 ~ 오후 1:00 토 / 일 / 공휴일 휴무</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 가운데: 계좌이체 정보 -->
+                    <div class="penm-footer-center">
+                        <div class="penm-footer-bank">
+                            <h3 class="penm-bank-title">계좌이체 정보</h3>
+                            <div class="penm-bank-info">
+                                <p>국민: 431801-01-156855</p>
+                                <p>우리: 1002-342-891868</p>
+                                <p>예금주: 권은경(아이마켓)</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 오른쪽: 쇼핑정보 -->
+                    <div class="penm-footer-right">
+                        <div class="penm-footer-info">
+                            <h3 class="penm-info-title">쇼핑정보</h3>
+                            <div class="penm-info-links">
+                                <a href="#">공지사항</a>
+                                <a href="#">문의하기</a>
+                                <a href="#">AS안내</a>
+                                <a href="#">자주묻는질문</a>
+                                <a href="#">주문배송</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 푸터 하단 영역 -->
+        <div class="penm-footer-bottom">
+            <div class="penm-footer-container">
+                <!-- 회사 정보 -->
+                <div class="penm-footer-company-info">
+                    <p>상호명: 아이마켓 | 대표: 권은경 | 사업자등록번호: 130-39-43940 | 통신판매업신고: 제 2023-서울강남-04937호</p>
+                    <p>전화: 02-575-2048 | 팩스: 02-575-2049 | 주소: 서울시 강남구 논현로 16길 4-3 이룸빌딩 5층</p>
+                    <p>개인정보보호책임자: 권은경 | 이메일: yespen@gmail.com</p>
+                </div>
+
+                <!-- 저작권 정보 -->
+                <div class="penm-footer-copyright">
+                    <p>Copyright by yespen.co.kr 2003-2023. All Rights Reserved.</p>
+                    <p>고객님의 안전거래를 위해 현금 등으로 결제 시 저희 쇼핑몰이 가입된 PG 에스크로 구매안전 서비스를 이용하실 수 있습니다.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ========== 푸터 섹션 끝 ========== -->
+
+    <script>
+        let currentSlideIndex = 0;
+        const slides = document.querySelectorAll('.penm-slide');
+        const indicators = document.querySelectorAll('.penm-indicator');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            // 모든 슬라이드 비활성화
+            slides.forEach(slide => slide.classList.remove('penm-slide-active'));
+            indicators.forEach(indicator => indicator.classList.remove('penm-indicator-active'));
+            
+            // 현재 슬라이드 활성화
+            slides[index].classList.add('penm-slide-active');
+            indicators[index].classList.add('penm-indicator-active');
+        }
+
+        function nextSlide() {
+            currentSlideIndex = (currentSlideIndex + 1) % totalSlides;
+            showSlide(currentSlideIndex);
+        }
+
+        function prevSlide() {
+            currentSlideIndex = (currentSlideIndex - 1 + totalSlides) % totalSlides;
+            showSlide(currentSlideIndex);
+        }
+
+        function currentSlide(index) {
+            currentSlideIndex = index - 1;
+            showSlide(currentSlideIndex);
+        }
+
+        // 자동 슬라이드 (5초마다)
+        setInterval(nextSlide, 5000);
+
+        function toggleMobileMenu() {
+            const navWrapper = document.getElementById('penm-nav-wrapper');
+            navWrapper.classList.toggle('penm-mobile-open');
+        }
+
+        // 메가메뉴 위치 및 크기 동적 조정 함수
+        function adjustMegaMenuPosition() {
+            const navMenu = document.querySelector('.penm-nav-menu');
+            const megaMenu = document.querySelector('.penm-brand-megamenu');
+            
+            if (navMenu && megaMenu && window.innerWidth > 768) {
+                // 네비게이션 메뉴의 실제 너비 계산
+                const menuRect = navMenu.getBoundingClientRect();
+                const menuWidth = menuRect.width;
+                
+                // 메가메뉴 너비를 네비게이션 메뉴 너비로 설정 (최대 900px)
+                const adjustedWidth = Math.min(menuWidth, 900);
+                megaMenu.style.width = adjustedWidth + 'px';
+            }
+        }
+
+        // 페이지 로드 및 리사이즈 시 메가메뉴 크기 조정
+        window.addEventListener('load', adjustMegaMenuPosition);
+        window.addEventListener('resize', adjustMegaMenuPosition);
+    </script>
+</body>
+</html>
